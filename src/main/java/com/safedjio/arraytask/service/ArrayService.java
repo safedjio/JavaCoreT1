@@ -1,7 +1,7 @@
-package java.first.task.service;
+package com.safedjio.arraytask.service;
 
-import java.first.task.entity.CustomArray;
-import java.first.task.exception.ArrayException;
+import com.safedjio.arraytask.entity.CustomArray;
+import com.safedjio.arraytask.exception.ArrayException;
 
 public interface ArrayService {
     int findMin(CustomArray customArray) throws ArrayException;

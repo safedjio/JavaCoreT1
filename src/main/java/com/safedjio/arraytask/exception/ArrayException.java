@@ -1,4 +1,4 @@
-package java.first.task.exception;
+package com.safedjio.arraytask.exception;
 
 public class ArrayException extends Exception {
 

@@ -1,8 +1,8 @@
-package java.first.task.service.impl;
+package com.safedjio.arraytask.service.impl;
 
-import java.first.task.entity.CustomArray;
-import java.first.task.exception.ArrayException;
-import java.first.task.service.ArrayService;
+import com.safedjio.arraytask.entity.CustomArray;
+import com.safedjio.arraytask.exception.ArrayException;
+import com.safedjio.arraytask.service.ArrayService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -93,6 +93,7 @@ public class ArrayServiceImpl implements ArrayService {
             }
         }
         logger.info("Bubble Sort finished");
+        logger.info("  -> Sorted array: {}", array);
     }
 
     @Override
@@ -117,6 +118,7 @@ public class ArrayServiceImpl implements ArrayService {
             }
         }
         logger.info("Selection Sort finished");
+        logger.info("  -> Sorted array: {}", array);
     }
 
 
