@@ -12,7 +12,7 @@ public class ArrayWarehouse {
 
     private static ArrayWarehouse instance;
 
-    private final Map<Integer, CustomArrayParameters> map;
+    private final Map<Long, CustomArrayParameters> map;
 
     private ArrayWarehouse(){
         this.map = new HashMap<>();
@@ -27,23 +27,23 @@ public class ArrayWarehouse {
         return instance;
     }
 
-    public void put(Integer arrayId, CustomArrayParameters statistics){
+    public void put(Long arrayId, CustomArrayParameters statistics){
 
         map.put(arrayId, statistics);
         logger.info("Statistics put for array ID {}: {}", arrayId, statistics);
 
     }
 
-    public CustomArrayParameters get(Integer arrayId){
+    public CustomArrayParameters get(Long arrayId){
         return  map.get(arrayId);
     }
 
-    public void remove(Integer arrayId){
+    public void remove(Long arrayId){
         map.remove(arrayId);
         logger.debug("Statistics removed for array ID {}", arrayId);
     }
 
-    public void update(Integer arrayId, CustomArrayParameters statistics){
+    public void update(Long arrayId, CustomArrayParameters statistics){
         this.put(arrayId, statistics);
     }
 
