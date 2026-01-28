@@ -63,6 +63,15 @@ public class ArrayServiceImpl implements ArrayService {
     }
 
     @Override
+    public double findAverage(CustomArray customArray) throws ArrayException {
+        if (customArray.getSize() == 0) {
+            throw new ArrayException("Array is empty, cannot calculate average");
+        }
+        int sum = calculateSum(customArray);
+        return (double) sum / customArray.getSize();
+    }
+
+    @Override
     public int calculateSum(CustomArray customArray) throws ArrayException {
 
         checkArray(customArray);

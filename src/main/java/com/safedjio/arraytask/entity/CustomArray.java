@@ -1,20 +1,55 @@
 package com.safedjio.arraytask.entity;
+import com.safedjio.arraytask.observer.ArrayEvent;
+import com.safedjio.arraytask.observer.ArrayObserver;
+import com.safedjio.arraytask.service.IdGenerator;
+
 import java.util.Arrays;
 
 public class CustomArray {
-
+    private final long id;
     private int[] array;
+    private ArrayObserver observer;
+    private final int size;
 
-    public CustomArray(int[] array){
+    public CustomArray( int[] array){
+        this.id = IdGenerator.generateId();
         this.array = array.clone();
+        this.size = array.length;
     }
 
     public int[] getArray() {
         return array.clone();
     }
 
+    public long getId() { return id; }
+
     public void setArray(int[] array) {
         this.array = array.clone();
+        notifyObserver();
+    }
+
+    public void setArrayElement(int index, int value) {
+        this.array[index] = value;
+        notifyObserver();
+    }
+
+    public int getArrayElement(int index) {
+        return array[index];
+    }
+
+    public void setObserver(ArrayObserver observer) {
+        this.observer = observer;
+    }
+
+    private void notifyObserver() {
+        if (observer != null) {
+            ArrayEvent event = new ArrayEvent(this);
+            observer.update(event);
+        }
+    }
+
+    public int getSize() {
+        return size;
     }
 
     @Override
