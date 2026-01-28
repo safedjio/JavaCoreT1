@@ -4,9 +4,9 @@ public class CustomArrayParameters {
     private int min;
     private int max;
     private int sum;
-    private int average;
+    private double average;
 
-    public CustomArrayParameters(int sum, int min, int max, int average) {
+    public CustomArrayParameters(int sum, int min, int max, double average) {
         this.sum = sum;
         this.min = min;
         this.max = max;
@@ -21,7 +21,7 @@ public class CustomArrayParameters {
         return max;
     }
 
-    public int getAverage(){
+    public double getAverage(){
         return average;
     }
 

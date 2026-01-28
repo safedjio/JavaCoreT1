@@ -28,12 +28,12 @@ public class CustomArray {
         notifyObserver();
     }
 
-    public void setArrayElement(int index, int value) {
+    public void setElement(int index, int value) {
         this.array[index] = value;
         notifyObserver();
     }
 
-    public int getArrayElement(int index) {
+    public int getElement(int index) {
         return array[index];
     }
 
@@ -43,8 +43,7 @@ public class CustomArray {
 
     private void notifyObserver() {
         if (observer != null) {
-            ArrayEvent event = new ArrayEvent(this);
-            observer.update(event);
+            observer.update(new ArrayEvent(this));
         }
     }
 
