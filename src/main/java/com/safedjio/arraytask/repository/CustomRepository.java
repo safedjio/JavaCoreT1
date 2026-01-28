@@ -1,5 +1,6 @@
 package com.safedjio.arraytask.repository;
 import com.safedjio.arraytask.entity.CustomArray;
+import com.safedjio.arraytask.observer.Impl.ArrayObserverImpl;
 import com.safedjio.arraytask.specification.CustomSpecification;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -21,6 +22,7 @@ public class CustomRepository {
     }
 
     public void add(CustomArray array) {
+        array.setObserver(new ArrayObserverImpl());
         arrays.add(array);
     }
 

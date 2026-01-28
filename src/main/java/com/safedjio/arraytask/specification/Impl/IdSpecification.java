@@ -4,9 +4,9 @@ import com.safedjio.arraytask.entity.CustomArray;
 import com.safedjio.arraytask.specification.CustomSpecification;
 
 public class IdSpecification implements CustomSpecification {
-    private final int wantedId;
+    private final Long wantedId;
 
-    public IdSpecification(int wantedId){
+    public IdSpecification(Long wantedId){
         this.wantedId = wantedId;
     }
 
