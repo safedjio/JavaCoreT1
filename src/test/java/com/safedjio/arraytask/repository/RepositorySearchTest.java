@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RepositorySearchTest {
@@ -32,14 +33,18 @@ class RepositorySearchTest {
     @Test
     void testFindById() {
         List<CustomArray> result = CustomRepository.getInstance().query(new IdSpecification(1L));
-        assertEquals(1, result.size());
-        assertEquals(1L, result.get(0).getId());
+        assertAll(
+                ()->assertEquals(1, result.size()),
+                ()->assertEquals(1L, result.get(0).getId())
+        );
     }
 
     @Test
     void testFindBySumGreater() {
         List<CustomArray> result = CustomRepository.getInstance().query(new SumGreaterSpecification(10));
-        assertEquals(1, result.size());
-        assertEquals(30, ArrayWarehouse.getInstance().get(result.get(0).getId()).getSum());
+        assertAll(
+        ()->assertEquals(1, result.size()),
+        ()->assertEquals(30, ArrayWarehouse.getInstance().get(result.get(0).getId()).getSum())
+        );
     }
 }

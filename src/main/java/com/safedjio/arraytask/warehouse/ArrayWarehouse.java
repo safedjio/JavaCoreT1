@@ -42,9 +42,4 @@ public class ArrayWarehouse {
         map.remove(arrayId);
         logger.debug("Statistics removed for array ID {}", arrayId);
     }
-
-    public void update(Long arrayId, CustomArrayParameters statistics){
-        this.put(arrayId, statistics);
-    }
-
 }

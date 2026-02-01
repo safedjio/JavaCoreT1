@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ComparatorTest {
@@ -19,9 +20,10 @@ class ComparatorTest {
         list.add(new CustomArray(arr2));
 
         list.sort(new IdComparator());
-
-        assertEquals(1L, list.get(0).getId());
-        assertEquals(2L, list.get(1).getId());
+        assertAll(
+                ()->assertEquals(1L, list.get(0).getId()),
+                ()->assertEquals(2L, list.get(1).getId())
+        );
     }
 
     @Test
@@ -33,8 +35,9 @@ class ComparatorTest {
         list.add(new CustomArray(arr2));
 
         list.sort(new SizeComparator());
-
-        assertEquals(1, list.get(0).getArray().length);
-        assertEquals(3, list.get(1).getArray().length);
+        assertAll(
+                ()->assertEquals(1, list.get(0).getArray().length),
+                ()->assertEquals(3, list.get(1).getArray().length)
+        );
     }
 }

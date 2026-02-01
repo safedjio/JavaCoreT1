@@ -30,9 +30,9 @@ public class CustomRepository {
         arrays.remove(array);
     }
 
-    public List<CustomArray> getAll(){
-        return new ArrayList<>(arrays);
-    }
+//    public List<CustomArray> getAll(){
+//        return new ArrayList<>(arrays);
+//    }
 
     public List<CustomArray> query(CustomSpecification specification) {
         List<CustomArray> result = new ArrayList<>();
