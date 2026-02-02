@@ -7,7 +7,7 @@ public class InputDataValidator {
 
     private static final Pattern pattern = Pattern.compile(NUMBER_REGEX);
     public static boolean isValidLine(String line) {
-        if (line == null || line.trim().isEmpty()) {
+        if (line == null || line.trim().isBlank()) {
             return false;
         }
         return pattern.matcher(line).matches();
