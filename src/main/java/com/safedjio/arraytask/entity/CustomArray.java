@@ -9,12 +9,11 @@ public class CustomArray {
     private final long id;
     private int[] array;
     private ArrayObserver observer;
-    private final int size;
+
 
     public CustomArray( int[] array){
         this.id = IdGenerator.generateId();
         this.array = array.clone();
-        this.size = array.length;
     }
 
     public int[] getArray() {
@@ -29,8 +28,10 @@ public class CustomArray {
     }
 
     public void setElement(int index, int value) {
-        this.array[index] = value;
-        notifyObserver();
+        if(index > 0 && index <= array.length) {
+            this.array[index] = value;
+            notifyObserver();
+        }
     }
 
     public int getElement(int index) {
@@ -48,7 +49,7 @@ public class CustomArray {
     }
 
     public int getSize() {
-        return size;
+        return array.length;
     }
 
     @Override
