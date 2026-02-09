@@ -8,21 +8,28 @@ import com.safedjio.arraytask.observer.ArrayObserver;
 import com.safedjio.arraytask.service.ArrayService;
 import com.safedjio.arraytask.service.impl.ArrayServiceImpl;
 import com.safedjio.arraytask.warehouse.ArrayWarehouse;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ArrayObserverImpl implements ArrayObserver {
+    private static final Logger logger = LogManager.getLogger();
+
     @Override
     public void update(ArrayEvent event) {
         CustomArray array = event.getArray();
 
         ArrayService service = new ArrayServiceImpl();
-        int sum = 0,min = 0,max = 0; double avg = 0;
+        int sum = 0;
+        int min = 0;
+        int max = 0;
+        double avg = 0;
         try {
             sum = service.calculateSum(array);
             max = service.findMax(array);
             min = service.findMin(array);
             avg = service.findAverage(array);
         } catch (ArrayException e) {
-            throw new RuntimeException(e);
+            logger.info("ArrayException in ArrayObserverImpl");
         }
 
         CustomArrayParameters stats = new CustomArrayParameters(sum, min, max, avg );
